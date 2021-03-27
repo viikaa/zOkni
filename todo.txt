@@ -1,0 +1,26 @@
+ZOKNIListázás
+  - [ ] kártya megformázása
+  - [ ] listaelem megformázása
+  - [ ] nézetváltás
+  - [ ] törlésgomb
+  - [ ] új zokni gomb
+
+ZOKNISZERKESZTÉS
+  - [x] oldal megformázása
+  - [x] megnyitási logika
+  - [x] routing
+  - [x] adatkötés
+
+    KÉP
+      - [x] kép lehívása
+      - [x] kép feltöltése
+      - [x] placeholder kép
+
+    CRUD
+      - [ ] módosítás
+      - [ ] létrehozás
+
+      TÖRLÉS
+        - [ ] backend
+        - [ ] apiservice
+        - [ ] modal
