@@ -19,6 +19,14 @@ export class ApiService {
     return this.http.get<Sock>(`${this.baseUrl}/socks/${id}`);
   }
 
+  updateSock(sock: Sock){
+    return this.http.post<Sock>(`${this.baseUrl}/socks/${sock.id}`, sock);
+  }
+
+  removeSock(id: number){
+    return this.http.delete(`${this.baseUrl}/socks/${id}`, {responseType: 'text'}); //json-t várna alapból, de csak státuszkódot küld a szerver
+  }
+
   postImage(img: File, sockId: number){
     const fd = new FormData();
     fd.append('image', img, img.name);

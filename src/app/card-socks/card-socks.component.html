@@ -1,14 +1,9 @@
 <div class="container d-flex flex-wrap justify-content-around">
   <div class="col-lg-3 col-md-4 col-sm-6 p-2" *ngFor="let sock of socks">
-    <div class="card" (clcik)="onCardClick()">
+    <div class="card bg-dark">
       <div class="card-body text-center">
         <h5>{{sock.color}} {{sock.pattern}} sock</h5>
         <a routerLink='/socks/{{sock.id}}' class="stretched-link"></a>
-        <!-- <p>{{sock.owner}}</p>
-        <p>{{sock.color}}</p>
-        <p>{{sock.pattern}}</p>
-        <p>{{sock.hasPair ? '✔' : '❌'}}</p> -->
-        <!-- <img src="{{api.baseUrl}}/socks/1/img/{{sock.imgSrc}}" /> -->
       </div>
     </div>
   </div>

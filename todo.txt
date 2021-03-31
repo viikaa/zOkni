@@ -1,9 +1,17 @@
+-NAVBAR
+- [ ] back gomb a szerkesztés oldalon
+
+
 ZOKNIListázás
   - [ ] kártya megformázása
   - [ ] listaelem megformázása
   - [ ] nézetváltás
-  - [ ] törlésgomb
-  - [ ] új zokni gomb
+
+  LÉTREHOZÁS
+    - [x] új zokni gomb
+    - [ ] backend
+    - [ ] apiservice
+
 
 ZOKNISZERKESZTÉS
   - [x] oldal megformázása
@@ -16,11 +24,17 @@ ZOKNISZERKESZTÉS
       - [x] kép feltöltése
       - [x] placeholder kép
 
-    CRUD
-      - [ ] módosítás
-      - [ ] létrehozás
+    MÓDOSÍTÁS
+      - [x] frontend
+      - [x] backend
 
-      TÖRLÉS
-        - [ ] backend
-        - [ ] apiservice
-        - [ ] modal
+    TÖRLÉS
+      - [x] backend
+      - [x] apiservice
+      - [x] visszaléptetés
+      - [x] modal
+
+
+APISERVICE
+  - [ ] response type-ok
+  - [ ] módosítás -> put kérés

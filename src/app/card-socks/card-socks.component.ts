@@ -13,10 +13,6 @@ export class CardSocksComponent implements OnInit {
 
   socks: Sock[];
 
-  onCardClick(){
-    console.log('cardClick');
-  }
-
   ngOnInit(): void {
     this.api.getScoks().subscribe(socks => this.socks = socks);
   }

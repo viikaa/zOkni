@@ -8,12 +8,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardSocksComponent } from './card-socks/card-socks.component';
 import { SockDetailComponent } from './sock-detail/sock-detail.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardSocksComponent,
     SockDetailComponent,
+    NavbarComponent,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,6 +26,7 @@ import { SockDetailComponent } from './sock-detail/sock-detail.component';
     HttpClientModule,
     NgbModule,
     FormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

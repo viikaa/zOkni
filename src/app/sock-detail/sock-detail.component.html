@@ -1,42 +1,50 @@
-<div *ngIf="sock" class="card">
+<div *ngIf="sock" class="card bg-dark">
   <h1 class="card-title m-5">Edit {{sock.color}} {{sock.pattern}} sock</h1>
   <div class="card-body d-flex flex-wrap">
 
-    <div *ngIf="sock.imgSrc" class="sock-image col-12 col-md-6 col-lg-4">
+    <div *ngIf="sock.imgSrc" class="sock-image d-flex justify-content-center col-12 col-md-6 col-lg-4">
       <img src="{{getImageUrl()}}" alt="">
     </div>
 
-    <div *ngIf="!sock.imgSrc" class="image-placeholder d-flex flex-column justify-content-center col-12 col-md-6 col-lg-4" action="">
-      <label for="imgInput" id="addImgBtn" class="d-flex align-items-center justify-content-center mb-0">Add an image</label>
+    <div *ngIf="!sock.imgSrc"
+      class="image-placeholder d-flex flex-column justify-content-center col-12 col-md-6 col-lg-4" action="">
+      <label for="imgInput" id="addImgBtn" class="d-flex align-items-center justify-content-center mb-0">Add an
+        image</label>
       <input (change)="uploadImage($event)" type="file" id="imgInput" hidden>
     </div>
 
-    <form #loginForm="ngForm" class="col-12 col-md-6 col-lg-8" (submit)="submitForm()">
-        <label class="m-0 p-0" for="owner">Owner</label>
-        <span class="input-group mb-4">
-          <input [(ngModel)]="sock.owner" name="owner" type="text" class="form-control form-control-lg"
-            placeholder="Owner" required>
-        </span>
+    <form #sockForm="ngForm" class="col-12 col-md-6 col-lg-8" (submit)="submitForm()">
+      <label class="m-0 p-0" for="owner">Owner</label>
+      <span class="input-group mb-4">
+        <input [(ngModel)]="sock.owner" name="owner" type="text" class="form-control form-control-lg"
+          placeholder="Owner" required>
+      </span>
 
-        <label for="color">Color</label>
-        <span class="input-group mb-4">
-          <input [(ngModel)]="sock.color" name="color" type="text" class="form-control form-control-lg"
-            placeholder="Color" required>
-        </span>
+      <label for="color">Color</label>
+      <span class="input-group mb-4">
+        <input [(ngModel)]="sock.color" name="color" type="text" class="form-control form-control-lg"
+          placeholder="Color" required>
+      </span>
 
-        <label for="pattern">Pattern</label>
-        <span class="input-group mb-4">
-          <input [(ngModel)]="sock.pattern" name="pattern" type="text" class="form-control form-control-lg"
-            placeholder="Pattern" required>
-        </span>
+      <label for="pattern">Pattern</label>
+      <span class="input-group mb-4">
+        <input [(ngModel)]="sock.pattern" name="pattern" type="text" class="form-control form-control-lg"
+          placeholder="Pattern" required>
+      </span>
 
-        <span class="input-group pl-4">
-          <label for="hasPair">Check this box, if neither pair is lost :)</label>
-          <input [(ngModel)]="sock.hasPair" name="hasPair" type="checkbox" class="form-check-input">
-        </span>
+      <span class="input-group pl-4">
+        <label for="hasPair">Check this box, if neither pair is lost :)</label>
+        <input [(ngModel)]="sock.hasPair" name="hasPair" type="checkbox" class="form-check-input">
+      </span>
+
     </form>
+  </div>
+  <div class="buttons col-6 align-self-center d-flex justify-content-around m-2 p-0">
 
-    </div>
-    <button type="submit" class="btn btn-block btn-primary" [disabled]="loginForm.invalid">Submit</button>
+    <button class="btn flex-grow-0 btn-outline-warning" [disabled]="sockForm.invalid">Change picture</button>
+    <button (click)="submitForm()" class="btn flex-grow-0 btn-outline-success" [disabled]="sockForm.invalid">Save changes</button>
+    <button (click)="openDeleteModal()" class="btn flex-grow-0 btn-outline-danger" [disabled]="sockForm.invalid">Delete</button>
 
   </div>
+</div>
+
