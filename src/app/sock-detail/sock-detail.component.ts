@@ -35,6 +35,7 @@ export class SockDetailComponent implements OnInit {
         this.sock = this.getEmptySock();
       else
         this.sock = sock;
+      console.log(this.sock);
     });
   }
 
@@ -55,7 +56,10 @@ export class SockDetailComponent implements OnInit {
 
   uploadImage(event){
     const image = event.target.files[0];
-    this.api.postImage(image, this.sock.id).subscribe(sock => this.sock = sock);
+    this.api.postImage(image, this.sock.id).subscribe(sock => {
+      this.sock = sock;
+      console.log(sock);
+    });
   }
 
   openDeleteModal(){
@@ -74,7 +78,10 @@ export class SockDetailComponent implements OnInit {
     console.log('submitForm');
 
     if(this.sock.id === null)
-      this.api.addSock(this.sock).subscribe(newSock => this.router.navigateByUrl(`/socks/${newSock.id}`));
+      this.api.addSock(this.sock).subscribe(newSock => {
+        this.router.navigateByUrl(`/socks/${newSock.id}`);
+        this.sock = newSock;
+      });
     else
       this.api.updateSock(this.sock).subscribe(sock => this.sock = sock);
   }

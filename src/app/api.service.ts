@@ -21,9 +21,7 @@ export class ApiService {
 
   addSock(sock: Sock){
     console.log('addSock');
-
-    // return this.http.post(`${this.baseUrl}/socks`, sock, {responseType:'text'});
-    return this.http.post<Sock>(`${this.baseUrl}/socks`, sock)
+    return this.http.post<Sock>(`${this.baseUrl}/socks`, sock);
 
   }
 
