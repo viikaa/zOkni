@@ -3,5 +3,6 @@
     <img src="../../assets/socks.svg" width="30" height="30" class="d-inline-block align-top" alt="">
     zOKni
   </a>
-  <button class="btn btn-outline-success">New sock <fa-icon [icon]="faPlusCircle"></fa-icon></button>
+  <button *ngIf="!showBackButton" class="btn btn-outline-success" routerLink="socks/new">New sock <fa-icon [icon]="faPlusCircle"></fa-icon></button>
+  <button *ngIf="showBackButton" class="btn btn-outline-warning" (click)="navigateBack()">Back <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon></button>
 </nav>

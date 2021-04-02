@@ -1,5 +1,5 @@
 -NAVBAR
-- [ ] back gomb a szerkesztés oldalon
+- [x] back gomb a szerkesztés oldalon
 
 
 ZOKNIListázás

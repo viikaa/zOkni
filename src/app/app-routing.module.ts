@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'socks/card', pathMatch: 'full'},
   { path: 'socks/card', component: CardSocksComponent},
   { path: 'socks/:sockId', component: SockDetailComponent},
+  { path: 'socks/new', component: SockDetailComponent},
 ];
 
 @NgModule({

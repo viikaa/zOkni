@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ApiService } from '../api.service';
 import { Sock } from '../model/sock';
+import { NavService } from '../nav.service';
 
 @Component({
   selector: 'app-card-socks',
@@ -9,12 +12,16 @@ import { Sock } from '../model/sock';
 })
 export class CardSocksComponent implements OnInit {
 
-  constructor(private api: ApiService) { }
+  constructor(
+    private api: ApiService,
+    private nav: NavService,
+    private route: ActivatedRoute) { }
 
-  socks: Sock[];
+  socks$: Observable<Sock[]>;
 
   ngOnInit(): void {
-    this.api.getScoks().subscribe(socks => this.socks = socks);
+    this.nav.setCurrentUrlByRoute(this.route)
+    this.socks$ = this.api.getScoks();
   }
 
 }
