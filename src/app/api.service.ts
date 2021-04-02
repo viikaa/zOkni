@@ -15,22 +15,29 @@ export class ApiService {
     return this.http.get<Sock[]>(`${this.baseUrl}/socks`);
   }
 
-  getSockById(id: number){
+  getSockById(id: string){
     return this.http.get<Sock>(`${this.baseUrl}/socks/${id}`);
   }
 
-  updateSock(sock: Sock){
-    return this.http.post<Sock>(`${this.baseUrl}/socks/${sock.id}`, sock);
+  addSock(sock: Sock){
+    console.log('addSock');
+
+    // return this.http.post(`${this.baseUrl}/socks`, sock, {responseType:'text'});
+    return this.http.post<Sock>(`${this.baseUrl}/socks`, sock)
+
   }
 
-  removeSock(id: number){
+  updateSock(sock: Sock){
+    return this.http.put<Sock>(`${this.baseUrl}/socks/${sock.id}`, sock);
+  }
+
+  removeSock(id: string){
     return this.http.delete(`${this.baseUrl}/socks/${id}`, {responseType: 'text'}); //json-t várna alapból, de csak státuszkódot küld a szerver
   }
 
-  postImage(img: File, sockId: number){
+  postImage(img: File, sockId: string){
     const fd = new FormData();
     fd.append('image', img, img.name);
-    this.http.post(`${this.baseUrl}/socks/${sockId}/img`, fd, {responseType: 'text'})
-      .subscribe(res => console.log(res));
+    return this.http.post<Sock>(`${this.baseUrl}/socks/${sockId}/img`, fd);
   }
 }

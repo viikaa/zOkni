@@ -1,5 +1,5 @@
 export interface Sock{
-    id: number,
+    id: string,
     owner: string,
     color: string,
     pattern: string,

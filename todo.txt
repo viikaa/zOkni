@@ -9,6 +9,7 @@ ZOKNIListázás
 
   LÉTREHOZÁS
     - [x] új zokni gomb
+    - [ ] több request :(
     - [ ] backend
     - [ ] apiservice
 
@@ -18,15 +19,22 @@ ZOKNISZERKESZTÉS
   - [x] megnyitási logika
   - [x] routing
   - [x] adatkötés
+  - [x] gombok egymás alá sm és xs esetén
+  - [x] gombok ne csússzanak össze md esetén
+  - [x] kép form összecsúszik lg-n és md-n
 
     KÉP
       - [x] kép lehívása
       - [x] kép feltöltése
       - [x] placeholder kép
+      - [x] feltöltés után kép megjelenítése
+      - [ ] kép törlése
+      - [ ] kép cseréje
 
     MÓDOSÍTÁS
       - [x] frontend
       - [x] backend
+      - [ ] alert
 
     TÖRLÉS
       - [x] backend
