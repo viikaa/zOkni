@@ -20,9 +20,7 @@ export class ApiService {
   }
 
   addSock(sock: Sock){
-    console.log('addSock');
     return this.http.post<Sock>(`${this.baseUrl}/socks`, sock);
-
   }
 
   updateSock(sock: Sock){

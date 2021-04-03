@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlert, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Sock } from '../model/sock';
 import { ApiService } from '../api.service';
 import { NavService } from '../nav.service';
@@ -22,6 +22,9 @@ export class SockDetailComponent implements OnInit {
     private modalService: NgbModal) { }
 
   sock: Sock;
+  showAlert = false;
+
+  @ViewChild('updateAlert', {static: false}) updateAlert: NgbAlert;
 
   ngOnInit(): void {
     this.nav.setCurrentUrlByRoute(this.route);
@@ -35,7 +38,6 @@ export class SockDetailComponent implements OnInit {
         this.sock = this.getEmptySock();
       else
         this.sock = sock;
-      console.log(this.sock);
     });
   }
 
@@ -58,7 +60,6 @@ export class SockDetailComponent implements OnInit {
     const image = event.target.files[0];
     this.api.postImage(image, this.sock.id).subscribe(sock => {
       this.sock = sock;
-      console.log(sock);
     });
   }
 
@@ -75,15 +76,25 @@ export class SockDetailComponent implements OnInit {
   }
 
   submitForm(){
-    console.log('submitForm');
+    if(this.sock.id === null) this.addSock()
+    else this.updateSock();
+  }
 
-    if(this.sock.id === null)
-      this.api.addSock(this.sock).subscribe(newSock => {
-        this.router.navigateByUrl(`/socks/${newSock.id}`);
-        this.sock = newSock;
-      });
-    else
-      this.api.updateSock(this.sock).subscribe(sock => this.sock = sock);
+  addSock(){
+    this.api.addSock(this.sock).subscribe(newSock => {
+      this.router.navigateByUrl(`/socks/${newSock.id}`);
+      this.sock = newSock;
+    });
+  }
+
+  updateSock(){
+    this.api.updateSock(this.sock).subscribe(sock => {
+      this.sock = sock;
+      this.showAlert = true;
+      setTimeout(() => {
+        this.updateAlert.close();
+      }, 2000);
+    });
   }
 
 }

@@ -9,9 +9,9 @@ ZOKNIListázás
 
   LÉTREHOZÁS
     - [x] új zokni gomb
-    - [ ] több request :(
-    - [ ] backend
-    - [ ] apiservice
+    - [x] több request :(
+    - [x] backend
+    - [x] apiservice
 
 
 ZOKNISZERKESZTÉS
@@ -34,7 +34,7 @@ ZOKNISZERKESZTÉS
     MÓDOSÍTÁS
       - [x] frontend
       - [x] backend
-      - [ ] alert
+      - [x] alert
 
     TÖRLÉS
       - [x] backend
@@ -45,4 +45,4 @@ ZOKNISZERKESZTÉS
 
 APISERVICE
   - [ ] response type-ok
-  - [ ] módosítás -> put kérés
+  - [x] módosítás -> put kérés

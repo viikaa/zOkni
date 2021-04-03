@@ -4,7 +4,7 @@
 
     <div *ngIf="sock.imgSrc" class="sock-image d-flex flex-column justify-content-start col-12 col-md-6 col-lg-4">
       <img src="{{getImageUrl()}}" alt="">
-      <button class="btn btn-outline-warning mt-0" [disabled]="sockForm.invalid">Change picture</button>
+      <button class="btn btn-outline-warning mt-2 mt-md-0" [disabled]="sockForm.invalid">Change picture</button>
     </div>
 
     <div *ngIf="!sock.imgSrc" class="image-placeholder d-flex flex-column justify-content-center col-12 col-md-6 col-lg-4" action="">
@@ -29,8 +29,8 @@
       </span>
 
       <span class="input-group pl-4">
-        <label for="hasPair">Check this box, if neither pair is lost :)</label>
-        <input [(ngModel)]="sock.hasPair" name="hasPair" type="checkbox" class="form-check-input">
+        <label class="form-check-label" for="hasPair">Check this box, if neither pair is lost :)</label>
+        <input [(ngModel)]="sock.hasPair" id="hasPair" name="hasPair" type="checkbox" class="form-check-input">
       </span>
 
       <span class="buttons align-self-center d-flex flex-md-row flex-column justify-content-end pt-3">
@@ -44,3 +44,4 @@
   </div>
 
 </div>
+<ngb-alert #updateAlert *ngIf="showAlert" class="mt-4" type="success" (closed)="showAlert = false">Sock has been updated!</ngb-alert>
