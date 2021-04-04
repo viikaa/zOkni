@@ -3,17 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { CardSocksComponent } from './card-socks/card-socks.component';
 import { ListSocksComponent } from './list-socks/list-socks.component';
 import { SockDetailComponent } from './sock-detail/sock-detail.component';
+import { SockEditComponent } from './sock-edit/sock-edit.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'socks/card', pathMatch: 'full'},
-  { path: 'socks/card', component: CardSocksComponent},
-  { path: 'socks/list', component: ListSocksComponent},
-  { path: 'socks/:sockId', component: SockDetailComponent},
-  { path: 'socks/new', component: SockDetailComponent},
+  { path: '', redirectTo: 'socks/card', pathMatch: 'full' },
+  { path: 'socks/card', component: CardSocksComponent },
+  { path: 'socks/list', component: ListSocksComponent },
+  { path: 'socks/:sockId', component: SockDetailComponent },
+  { path: 'socks/:sockId/edit', component: SockEditComponent },
+  { path: 'socks/new', component: SockEditComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

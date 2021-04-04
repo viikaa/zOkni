@@ -5,23 +5,25 @@
 
 ZOKNIListázás
   - [~] kártya megformázása
-  - [ ] placeholder kép, ha nincs kép a zoknihoz
+  - [x] placeholder kép, ha nincs kép a zoknihoz
   - [~] listaelem megformázása
   - [x] nézetváltás
+  - [x] törlés
 
   LÉTREHOZÁS
     - [x] új zokni gomb
     - [x] több request :(
     - [x] backend
     - [x] apiservice
-    - [ ] title nem jó
+    - [x] title nem jó
     - [x] tooltip ha képet töltene fel
-    - [ ] placeholder kiszervezése külön componentbe?
+   (- [ ] placeholder kiszervezése külön componentbe?)
 
 
 ZOKNIRÉSZLETEZÉS
-  - [ ] ui
-  - [ ] routing
+  - [x] ui
+  - [ ] túl hosszú szövegeket kezelni
+  - [x] routing
 
 
 ZOKNISZERKESZTÉS
@@ -38,7 +40,7 @@ ZOKNISZERKESZTÉS
       - [x] kép feltöltése
       - [x] placeholder kép
       - [x] feltöltés után kép megjelenítése
-      - [ ] kép törlése
+      - [x] kép törlése
       - [x] kép cseréje
 
     MÓDOSÍTÁS

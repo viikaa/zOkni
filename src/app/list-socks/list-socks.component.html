@@ -3,7 +3,8 @@
     {{sock.color}} {{sock.pattern}} sock
     <div class="ml-auto">
       <a routerLink="/socks/{{sock.id}}" class="mx-1 icon details-icon"><fa-icon [icon]="faInfoCircle"></fa-icon></a>
-      <a href="#" class="mx-1 icon delete-icon"><fa-icon [icon]="faTrashAlt"></fa-icon></a>
+      <a routerLink="/socks/{{sock.id}}/edit" class="mx-1 icon edit-icon"><fa-icon [icon]="faEdit"></fa-icon></a>
+      <a class="mx-1 icon delete-icon" (click)="openDeleteModal(sock)"><fa-icon [icon]="faTrashAlt"></fa-icon></a>
     </div>
   </li>
 </ul>

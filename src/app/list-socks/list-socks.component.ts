@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from '../api.service';
 import { Sock } from '../model/sock';
-import { faInfoCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DeleteComponent } from '../delete/delete.component';
 
 @Component({
   selector: 'app-list-socks',
@@ -11,13 +13,25 @@ import { faInfoCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 })
 export class ListSocksComponent implements OnInit {
 
-  constructor(private api: ApiService) { }
+  constructor(
+    private api: ApiService,
+    private modalService: NgbModal) { }
 
   socks$: Observable<Sock[]>;
   faInfoCircle = faInfoCircle;
   faTrashAlt = faTrashAlt;
+  faEdit = faEdit;
 
   ngOnInit(): void {
     this.socks$ = this.api.getScoks();
+  }
+
+  openDeleteModal(sock){
+    let modal = this.modalService.open(DeleteComponent, { backdrop: 'static', centered: true });
+    (modal.componentInstance as DeleteComponent).initParams('sock', this.deleteSock.bind(this, sock));
+  }
+
+  private deleteSock = sock => {
+    this.api.removeSock(sock.id).subscribe(() => this.socks$ = this.api.getScoks());
   }
 }

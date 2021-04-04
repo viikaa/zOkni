@@ -7,20 +7,22 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardSocksComponent } from './card-socks/card-socks.component';
-import { SockDetailComponent } from './sock-detail/sock-detail.component';
+import { SockEditComponent } from './sock-edit/sock-edit.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DeleteComponent } from './delete/delete.component';
 import { ListSocksComponent } from './list-socks/list-socks.component';
+import { SockDetailComponent } from './sock-detail/sock-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardSocksComponent,
-    SockDetailComponent,
+    SockEditComponent,
     NavbarComponent,
     DeleteComponent,
     ListSocksComponent,
+    SockDetailComponent,
   ],
   imports: [
     BrowserModule,

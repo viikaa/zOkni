@@ -1,61 +1,24 @@
-<div *ngIf="sock" class="card bg-dark">
-  <h1 class="card-title m-5">Edit {{sock.color}} {{sock.pattern}} sock</h1>
+<div *ngIf="sock$ | async let sock" class="card bg-dark">
+  <h1 class="card-title m-5">{{sock.color + ' ' + sock.pattern + ' sock'}}</h1>
   <div class="card-body d-flex flex-wrap">
 
-    <div class="sock-image d-flex flex-column  col-12 col-md-6 col-lg-4">
-      <ng-container *ngIf="sock.imgSrc">
-        <img src="{{getImageUrl()}}" (click)="removePicture()">
-        <label for="imgInput" class="btn btn-outline-warning mt-2 mb-0 ">
-          Change image <fa-icon [icon]="faImage"></fa-icon>
-        </label>
-      </ng-container>
-      <label
-        *ngIf="!sock.imgSrc"
-        #notAllowedPopover="ngbPopover"
-        [ngbPopover]="notAllowedPopoverText"
-        placement="top"
-        [closeDelay]="1000"
-        triggers="manual"
-        (click)="showNotAllowedPopover()"
-        for="imgInput"
-        id="addImgBtn"
-        class="d-flex align-items-center justify-content-center mb-0">
-          Add an image
-      </label>
-      <input (change)="uploadImage($event)" type="file" id="imgInput" hidden [disabled]="sock.id === null">
+    <div class="sock-image d-flex flex-column col-12 col-md-6 col-lg-4 ">
+      <img src="{{getImageUrl(sock.imgSrc)}}" onerror="this.src='../../assets/socks.svg'">
     </div>
 
-    <form #sockForm="ngForm" class="col-12 col-md-6 col-lg-8 mt-4 mt-md-0">
-      <label class="m-0 p-0" for="owner">Owner</label>
-      <span class="input-group mb-4">
-        <input [(ngModel)]="sock.owner" name="owner" type="text" class="form-control form-control-lg" placeholder="Owner" required>
-      </span>
-
-      <label for="color">Color</label>
-      <span class="input-group mb-4">
-        <input [(ngModel)]="sock.color" name="color" type="text" class="form-control form-control-lg" placeholder="Color" required>
-      </span>
-
-      <label for="pattern">Pattern</label>
-      <span class="input-group mb-4">
-        <input [(ngModel)]="sock.pattern" name="pattern" type="text" class="form-control form-control-lg" placeholder="Pattern" required>
-      </span>
-
-      <span class="input-group pl-4">
-        <label class="form-check-label" for="hasPair">Check this box, if neither pair is lost :)</label>
-        <input [(ngModel)]="sock.hasPair" id="hasPair" name="hasPair" type="checkbox" class="form-check-input">
-      </span>
-
-      <span class="buttons align-self-center d-flex flex-md-row flex-column justify-content-end pt-3">
-        <button (click)="submitForm()" class="btn flex btn-outline-success m-1 mb-md-0" [disabled]="sockForm.invalid">
-          Save changes <fa-icon [icon]="faSave"></fa-icon>
+    <div class="d-flex flex-column text-center justify-content-between col-12 col-md-6 col-lg-8">
+      <h3>Owner: {{sock.owner}}</h3>
+      <h3>Color: {{sock.color}}</h3>
+      <h3>Pattern: {{sock.pattern}}</h3>
+      <h3>Whole pair: {{sock.hasPair ? '👌' : '❌'}}</h3>
+      <div class="d-flex justify-content-end">
+        <button routerLink='/socks/{{sock.id}}/edit' class="btn btn-outline-success m-1 mb-md-0">
+          Edit sock <fa-icon [icon]="faEdit"></fa-icon>
         </button>
-        <button (click)="openDeleteModal()" class="btn flex- btn-outline-danger m-1 mb-md-0">
-          Delete <fa-icon [icon]="faTrashAlt"></fa-icon>
-        </button>
-      </span>
-    </form>
+
+      </div>
+    </div>
+
 
   </div>
 </div>
-<ngb-alert #updateAlert *ngIf="showAlert" class="mt-4" type="success" (closed)="showAlert = false">Sock has been updated!</ngb-alert>

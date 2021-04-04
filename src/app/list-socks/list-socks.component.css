@@ -1,13 +1,19 @@
 li{
   color: whitesmoke;
+  font-size: 1.3rem;
 }
 
 .icon{
   color: whitesmoke;
+  cursor: pointer;
 }
 
 .details-icon:hover{
   color:skyblue;
+}
+
+.edit-icon:hover{
+  color:yellowgreen;
 }
 
 .delete-icon:hover{

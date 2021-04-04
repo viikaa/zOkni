@@ -37,7 +37,7 @@ export class ApiService {
     return this.http.post<Sock>(`${this.baseUrl}/socks/${sockId}/img`, fd);
   }
 
-  // findImage(id: string) {
-  //   return this.http.get(``)
-  // }
+  removePicture(sockId: string) {
+    return this.http.delete<Sock>(`${this.baseUrl}/socks/${sockId}/img`);
+  }
 }
