@@ -29,7 +29,7 @@ ZOKNISZERKESZTÉS
       - [x] placeholder kép
       - [x] feltöltés után kép megjelenítése
       - [ ] kép törlése
-      - [ ] kép cseréje
+      - [x] kép cseréje
 
     MÓDOSÍTÁS
       - [x] frontend

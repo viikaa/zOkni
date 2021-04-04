@@ -60,6 +60,7 @@ export class SockDetailComponent implements OnInit {
     const image = event.target.files[0];
     this.api.postImage(image, this.sock.id).subscribe(sock => {
       this.sock = sock;
+      // this.sock.imgSrc = null;
     });
   }
 
@@ -95,6 +96,11 @@ export class SockDetailComponent implements OnInit {
         this.updateAlert.close();
       }, 2000);
     });
+  }
+
+  removePicture(){
+    console.log('removePicture');
+
   }
 
 }
