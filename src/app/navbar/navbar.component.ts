@@ -1,7 +1,7 @@
 import { Component,  OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { NavService } from '../nav.service';
-import { faPlusCircle, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+import { faPlusCircle, faArrowAltCircleLeft, faTh, faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -12,16 +12,31 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private location: Location,
-    private nav: NavService) {}
+    private router: Router) {}
 
   faPlusCircle = faPlusCircle;
   faArrowAltCircleLeft = faArrowAltCircleLeft;
+  faTh = faTh;
+  faBars = faBars;
+
   showBackButton: boolean;
+  activatedRouteIsCard: boolean;
 
   ngOnInit(): void {
-    this.nav.getCurrentUrl().subscribe(currentUrl => {
-      this.showBackButton = currentUrl !== '/socks/card'
+    this.location.onUrlChange(currentUrl => {
+      this.showBackButton = currentUrl !== '/socks/card' && currentUrl !== '/socks/list';
+      this.activatedRouteIsCard = currentUrl === '/socks/card';
     });
+  }
+
+  navigateToCardView(){
+    this.router.navigateByUrl('/socks/card');
+    this.activatedRouteIsCard = true;
+  }
+
+  navigateToListView(){
+    this.router.navigateByUrl('/socks/list');
+    this.activatedRouteIsCard = false;
   }
 
   navigateBack() {

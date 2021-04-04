@@ -36,4 +36,8 @@ export class ApiService {
     fd.append('image', img, img.name);
     return this.http.post<Sock>(`${this.baseUrl}/socks/${sockId}/img`, fd);
   }
+
+  // findImage(id: string) {
+  //   return this.http.get(``)
+  // }
 }

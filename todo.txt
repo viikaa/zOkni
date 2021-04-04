@@ -1,17 +1,27 @@
 -NAVBAR
 - [x] back gomb a szerkesztés oldalon
+- [ ] gombok reszponzivitása
 
 
 ZOKNIListázás
-  - [ ] kártya megformázása
-  - [ ] listaelem megformázása
-  - [ ] nézetváltás
+  - [~] kártya megformázása
+  - [ ] placeholder kép, ha nincs kép a zoknihoz
+  - [~] listaelem megformázása
+  - [x] nézetváltás
 
   LÉTREHOZÁS
     - [x] új zokni gomb
     - [x] több request :(
     - [x] backend
     - [x] apiservice
+    - [ ] title nem jó
+    - [x] tooltip ha képet töltene fel
+    - [ ] placeholder kiszervezése külön componentbe?
+
+
+ZOKNIRÉSZLETEZÉS
+  - [ ] ui
+  - [ ] routing
 
 
 ZOKNISZERKESZTÉS

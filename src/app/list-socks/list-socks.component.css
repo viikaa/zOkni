@@ -1,0 +1,15 @@
+li{
+  color: whitesmoke;
+}
+
+.icon{
+  color: whitesmoke;
+}
+
+.details-icon:hover{
+  color:skyblue;
+}
+
+.delete-icon:hover{
+  color:tomato;
+}

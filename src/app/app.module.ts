@@ -11,6 +11,7 @@ import { SockDetailComponent } from './sock-detail/sock-detail.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DeleteComponent } from './delete/delete.component';
+import { ListSocksComponent } from './list-socks/list-socks.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DeleteComponent } from './delete/delete.component';
     SockDetailComponent,
     NavbarComponent,
     DeleteComponent,
+    ListSocksComponent,
   ],
   imports: [
     BrowserModule,

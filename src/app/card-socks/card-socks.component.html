@@ -1,7 +1,7 @@
-<div class="container d-flex flex-wrap justify-content-around">
+<div class="d-flex flex-wrap justify-content-around m-xs-2">
   <div class="col-lg-3 col-md-4 col-sm-6 p-2" *ngFor="let sock of socks$ | async">
     <div class="card bg-dark">
-      <img class="card-img-top" src="http://localhost:5000/api/img/{{sock.imgSrc}}">
+      <img class="card-img-top" [src]="getImageUrl(sock)" onerror="this.src='../../assets/socks.svg'" >
       <div class="card-body text-center">
         <h5>{{sock.color}} {{sock.pattern}} sock</h5>
         <a routerLink='/socks/{{sock.id}}' class="stretched-link"></a>

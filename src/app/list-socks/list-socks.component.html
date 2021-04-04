@@ -1,0 +1,9 @@
+<ul class="list-group" role="tablist">
+  <li *ngFor="let sock of socks$ | async" class="d-flex list-group-item bg-dark" role="tab">
+    {{sock.color}} {{sock.pattern}} sock
+    <div class="ml-auto">
+      <a routerLink="/socks/{{sock.id}}" class="mx-1 icon details-icon"><fa-icon [icon]="faInfoCircle"></fa-icon></a>
+      <a href="#" class="mx-1 icon delete-icon"><fa-icon [icon]="faTrashAlt"></fa-icon></a>
+    </div>
+  </li>
+</ul>

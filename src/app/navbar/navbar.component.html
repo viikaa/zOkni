@@ -1,8 +1,25 @@
 <nav class="navbar navbar-light bg-dark">
-  <a class="navbar-brand" routerLink="/">
-    <img src="../../assets/socks.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-    zOKni
-  </a>
-  <button *ngIf="!showBackButton" class="btn btn-outline-success" routerLink="socks/new">New sock <fa-icon [icon]="faPlusCircle"></fa-icon></button>
-  <button *ngIf="showBackButton" class="btn btn-outline-warning" (click)="navigateBack()">Back <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon></button>
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <img src="../../assets/socks.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+      zOKni
+    </a>
+    <span>
+
+      <div *ngIf="!showBackButton" class="btn-group btn-group-toggle mr-2" data-toggle="buttons">
+        <label [class]="activatedRouteIsCard ? 'btn btn-outline-warning active' : 'btn btn-outline-warning'">
+          <input type="radio" name="options" id="option2" autocomplete="off" (click)="navigateToCardView()">
+          <fa-icon [icon]="faTh"></fa-icon>
+        </label>
+        <label [class]="!activatedRouteIsCard ? 'btn btn-outline-warning active' : 'btn btn-outline-warning'">
+          <input type="radio" name="options" id="option3" autocomplete="off" (click)="navigateToListView()">
+          <fa-icon [icon]="faBars"></fa-icon>
+        </label>
+      </div>
+
+      <button *ngIf="!showBackButton" class="btn btn-outline-success" routerLink="socks/new">New sock <fa-icon [icon]="faPlusCircle"></fa-icon></button>
+      <button *ngIf="showBackButton" class="btn btn-outline-warning" (click)="navigateBack()">Back <fa-icon [icon]="faArrowAltCircleLeft"></fa-icon></button>
+    </span>
+
+  </div>
 </nav>
