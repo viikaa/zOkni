@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Location } from '@angular/common';
 import { NgbAlert, NgbModal, NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 import { faSave, faImage, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Sock } from '../model/sock';
@@ -18,7 +17,6 @@ export class SockEditComponent implements OnInit, OnDestroy {
     private api: ApiService,
     private route: ActivatedRoute,
     private router: Router,
-    private location: Location,
     private modalService: NgbModal) { }
 
   private routerSubscription: Subscription;

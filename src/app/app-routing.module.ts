@@ -9,9 +9,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'socks/card', pathMatch: 'full' },
   { path: 'socks/card', component: CardSocksComponent },
   { path: 'socks/list', component: ListSocksComponent },
+  { path: 'socks/new', component: SockEditComponent },
   { path: 'socks/:sockId', component: SockDetailComponent },
   { path: 'socks/:sockId/edit', component: SockEditComponent },
-  { path: 'socks/new', component: SockEditComponent },
 ];
 
 @NgModule({

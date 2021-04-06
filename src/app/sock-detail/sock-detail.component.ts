@@ -25,7 +25,7 @@ export class SockDetailComponent implements OnInit {
   }
 
   getImageUrl(imgName: string): string {
-    return `http://localhost:5000/api/img/${imgName}`
+    return `${this.api.baseUrl}/img/${imgName}`
   }
 
 }

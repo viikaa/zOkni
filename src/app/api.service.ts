@@ -28,7 +28,7 @@ export class ApiService {
   }
 
   removeSock(id: string){
-    return this.http.delete(`${this.baseUrl}/socks/${id}`, {responseType: 'text'}); //json-t várna alapból, de csak státuszkódot küld a szerver
+    return this.http.delete(`${this.baseUrl}/socks/${id}`, {responseType: 'text'});
   }
 
   postImage(img: File, sockId: string){
