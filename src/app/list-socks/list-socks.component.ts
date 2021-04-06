@@ -26,12 +26,12 @@ export class ListSocksComponent implements OnInit {
     this.socks$ = this.api.getScoks();
   }
 
-  openDeleteModal(sock){
+  openDeleteModal(sock: Sock){
     let modal = this.modalService.open(DeleteComponent, { backdrop: 'static', centered: true });
-    (modal.componentInstance as DeleteComponent).initParams('sock', this.deleteSock.bind(this, sock));
+    (modal.componentInstance as DeleteComponent).initParams('sock', this.removeSock.bind(this, sock));
   }
 
-  private deleteSock = sock => {
+  private removeSock = (sock: Sock) => {
     this.api.removeSock(sock.id).subscribe(() => this.socks$ = this.api.getScoks());
   }
 }

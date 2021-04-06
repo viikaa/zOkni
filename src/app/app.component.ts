@@ -1,6 +1,4 @@
-import { Component, DoCheck, OnChanges, OnInit } from '@angular/core';
-import { Router, RouterStateSnapshot } from '@angular/router';
-
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

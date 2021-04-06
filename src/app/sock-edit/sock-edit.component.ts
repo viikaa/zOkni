@@ -71,11 +71,11 @@ export class SockEditComponent implements OnInit, OnDestroy {
     };
   }
 
-  removeSock = () => {
-    this.api.removeSock(this.sock.id).subscribe(_ => {
-      this.router.navigateByUrl('/');
-    });
-  }
+  // removeSock = () => {
+  //   this.api.removeSock(this.sock.id).subscribe(_ => {
+  //     this.router.navigateByUrl('/');
+  //   });
+  // }
 
   removePicture = () => {
     this.api.removePicture(this.sock.id).subscribe(sock => this.sock = sock);
@@ -128,5 +128,4 @@ export class SockEditComponent implements OnInit, OnDestroy {
       }, 2000);
     });
   }
-
 }
