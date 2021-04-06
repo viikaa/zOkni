@@ -113,6 +113,7 @@ export class SockEditComponent implements OnInit, OnDestroy {
   }
 
   addSock(){
+    if(this.sock.hasPair === null) this.sock.hasPair = false;
     this.api.addSock(this.sock).subscribe(async newSock => {
       this.sock = newSock;
       await this.router.navigateByUrl(`/socks/${newSock.id}`);
